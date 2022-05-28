@@ -45,6 +45,10 @@ export class AddNewsubjectComponent implements OnInit {
     console.log(data)
     if(data.length === 0){
       let section:any[] = await this.service.getSubjectSection(this.allForm.value.subject_id)
+      if(section.length === 0){
+        this.allForm.reset()
+        alert('วิชานี้ไม่มีคลาสเรียน')
+      }
       this.selectAdd = section.map(value=>{
         return value.subject_section
       })
