@@ -1,0 +1,75 @@
+<app-top></app-top>
+<div *ngIf="mySubjectList.length !== 0">
+<h1 class="header" align="center">แก้ไขวิชาเรียน</h1>
+<table>
+  <tr>
+    <th>รหัสวิชา</th>
+    <th>ชื่อวิชา</th>
+    <th>หน่วยกิจ</th>
+    <th>รหัสวิชา</th>
+    <th>รหัสอาจารย์</th>
+    <th>ตอนเรียนที่</th>
+  </tr>
+  <tr *ngFor="let b of mySubjectList">
+    <td>{{b.subject_id}}</td>
+    <td>{{b.subject_name}}</td>
+    <td>{{b.credit}}</td>
+    <td>{{b.teacher_id}}</td>
+    <td>{{b.teacher_fname}} {{b.teacher_lname}}</td>
+    <td>{{b.subject_section}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>หน่วยกิจรวม</td>
+    <td>{{sumCredit}}</td>
+  </tr>
+</table>
+
+<div class="super-option">
+  <select class="select-option" [(ngModel)]="selectOption" (ngModelChange)="onChange()">
+    <option [ngValue]="0" selected hidden>โปรดเลือก</option>
+    <option [ngValue]="1">เพิ่มวิชาเรียน</option>
+    <option [ngValue]="2">เปลี่ยนตอนเรียน</option>
+    <option [ngValue]="3">ถอนวิชาเรียน</option>
+  </select>
+
+  <div class="super-form">
+    <form [formGroup]="allForm" *ngIf="selectOption === 1">
+      <h1>เพิ่มวิชาเรียน</h1>
+      <label>รหัสวิชา : </label><input formControlName="subject_id" type="text">
+      <button (click)="submitsubjectId()">ยืนยัน รหัสวิชา</button>
+      <div *ngIf="selectAdd.length !== 0">
+        <p>ตอนเรียน </p>
+        <select class="select-option" formControlName="sectionSelect">
+          <option value="" hidden>โปรดเลือกตอนเรียน</option>
+          <option *ngFor="let g of selectAdd" [ngValue]="g">{{g}}</option>
+        </select>
+        <button (click)="submitAdd()" [disabled]="allForm.invalid">เพิ่มวิชาเรียน</button>
+      </div>
+    </form>
+
+    <form [formGroup]="allForm" *ngIf="selectOption === 2">
+      <h1>เปลี่ยนตอนเรียน</h1>
+      <label>รหัสวิชา : </label><input type="text" formControlName="subject_id">
+      <button (click)="findInSubjectList()">ยืนยัน รหัสวิชา</button>
+      <div *ngIf="selectAdd.length !== 0">
+        <h1>ตอนเรียน </h1>
+        <select class="select-option" formControlName="sectionSelect">
+          <option value="" hidden>โปรดเลือกตอนเรียน</option>
+          <option *ngFor="let g of selectAdd" [ngValue]="g">{{g}}</option>
+        </select>
+        <button (click)="submitChange()" [disabled]="allForm.invalid">เปลี่ยนตอนเรียน</button>
+      </div>
+    </form>
+
+    <form [formGroup]="allForm" *ngIf="selectOption === 3">
+      <h1>ถอนวิชา</h1>
+      <label>รหัสวิชา : </label><input type="text" formControlName="subject_id">
+      <button (click)="submitDelete()">ถอนวิชาเรียน</button>
+    </form>
+
+  </div>
+
+</div>
+</div>
+<h1 class="else" align="center" *ngIf="mySubjectList.length === 0">คุณยังไม่ได้ลงทะเบียน</h1>

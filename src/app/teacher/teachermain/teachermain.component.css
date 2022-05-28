@@ -1,0 +1,44 @@
+li{
+  list-style-type: none;
+  margin-right: 10rem;
+  font-size: 1.5rem;
+  color: black;
+}
+li:hover{
+  color:tomato;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  color:tomato;
+}
+ul{
+  text-align:end;
+}
+table, th, td {
+  margin: 10px ;
+  border: 1px #ddd solid;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,td{
+  vertical-align: center;
+  padding: 15px
+}
+table{
+  margin: 10px auto;
+}
+.backToTable{
+  margin: 30px 0 30px 5rem;
+  cursor: pointer;
+}
+
+.main{
+  width: 50%;
+  margin: 0 auto;
+}
+.header{
+  margin-top: 50px;
+}

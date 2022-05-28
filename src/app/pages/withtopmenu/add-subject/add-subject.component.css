@@ -1,0 +1,68 @@
+*{
+  text-align:center;
+}
+.register-page{
+    text-align: center;
+}
+
+table, th, td {
+    margin: 10px ;
+    border: 1px #ddd solid;
+    border-collapse: collapse;
+
+  }
+
+  th,td{
+    vertical-align: center;
+    padding: 15px
+  }
+
+  .add-form{
+      width: 100%;
+
+
+  }
+  .as{
+      margin: 0 auto;
+      border: none;
+  }
+
+  .btn-in-table{
+      width: 100%;
+  }
+
+  table{
+    margin: 30px auto;
+  }
+  .submit-button{
+    margin: 30px auto;
+  }
+.Msg{
+  text-align: center;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.MsgE{
+  font-size: 1.9rem;
+}
+.main{
+  margin-top: 30px;
+}
+.header{
+  font-size: 1.8rem;
+}
+.semester{
+  font-size: 1.2rem;
+  margin: 30px 0;
+  text-decoration: underline;
+}
+.sectionselect{
+  margin: 30px auto;
+  width: 15%;
+}
+.buu{
+  width: 10%;
+}

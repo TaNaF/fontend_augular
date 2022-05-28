@@ -1,0 +1,53 @@
+<app-top></app-top>
+<div class="main" *ngIf="state">
+
+  <form [formGroup]="addsubjectForm">
+    <h1 class="header" align="center">ลงทะเบียน</h1>
+    <div class="semester">
+      <div>เทอม {{Term.semester_numer}} ปีการศึกษา {{Term.semester_year}}</div>
+    </div>
+    <div class="inputAccess">
+      <input type="text" placeholder="รหัสวิชา" formControlName="subject_id" />
+      <button type="submit" class="btn btn-primary btn-sm" *ngIf="sectionHold.length == 0" [disabled]="addsubjectForm.get('subject_id')?.errors?.['required']" (click)="onSubmit()">Submit</button>
+    </div>
+    <div *ngIf="sectionHold.length != 0">
+      <div class="sectionselect">
+        <select class="form-select form-select-sm" formControlName="sectionSelect">
+            <option value="" hidden>Please Select</option>
+            <option *ngFor="let section of sectionHold" [value]="section">{{section}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success buu" (click)="ok()" [disabled]="addsubjectForm.invalid">Click</button>
+      <button type="submit" class="btn btn-danger buu" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+  <form>
+
+  </form>
+  <div *ngIf="studentClass.length !== 0" >
+    <table>
+      <tr>
+        <th>รหัสวิชา</th>
+        <th>ชื่อวิชา</th>
+        <th>หน่วยกิจ</th>
+        <th>รหัสอาจารย์</th>
+        <th>ชื่ออาจารย์</th>
+        <th>ตอนเรียนที่</th>
+        <th>ลบ</th>
+      </tr>
+      <tr *ngFor="let b of studentClass">
+        <td>{{b.subject_id}}</td>
+        <td>{{b.subject_name}}</td>
+        <td>{{b.credit}}</td>
+        <td>{{b.teacher_id}}</td>
+        <td>{{b.teacher_fname}} {{b.teacher_lname}}</td>
+        <td>{{b.subject_section}}</td>
+        <td><button class="btn btn-danger" (click)="delete(b.subject_id)">Delete</button></td>
+      </tr>
+    </table>
+    <button class="btn btn-success submit-button" (click)="save()">ลงทะเบียน</button>
+  </div>
+</div>
+<div class="Msg" *ngIf="!state">
+  <h2 class="MsgE">{{EventMsg}}</h2>
+</div>

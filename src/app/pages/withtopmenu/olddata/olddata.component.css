@@ -1,0 +1,30 @@
+.select-form{
+  text-align: center;
+}
+table, th, td {
+  margin: 10px auto;
+  border: 1px #ddd solid;
+  border-collapse: collapse;
+
+}
+
+th,td{
+  vertical-align: center;
+  padding: 15px
+}
+.container{
+  text-align: center;
+  margin: 50px auto;
+}
+select{
+  width: 30%;
+  margin: 50px auto 20px;
+}
+.never{
+  text-align: center;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}

@@ -1,0 +1,63 @@
+.super-form{
+  display: flex;
+  justify-content: center;
+  column-gap: 4rem;
+}
+form{
+  text-align: center;
+}
+.register-page{
+    text-align: center;
+}
+
+table, th, td {
+    margin: 10px ;
+    border: 1px #ddd solid;
+    border-collapse: collapse;
+
+  }
+
+  th,td{
+    vertical-align: center;
+    padding: 15px
+  }
+
+  .add-form{
+      width: 100%;
+
+
+  }
+  .as{
+      margin: 0 auto;
+      border: none;
+  }
+
+  .btn-in-table{
+      width: 100%;
+  }
+
+  table{
+    margin: 30px auto;
+  }
+  .submit-button{
+    margin: 30px auto;
+  }
+.header{
+  text-align: center;
+  margin: 30px auto;
+}
+.super-option{
+  text-align: center;
+}
+.select-option{
+  margin: 30px 0;
+}
+
+.else{
+  width: 30%;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}

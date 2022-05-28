@@ -1,0 +1,30 @@
+<app-top></app-top>
+<div *ngIf="semesterList.length !== 0">
+  <div class="container">
+      <form  class="select-form" [formGroup]="olddataForm">
+          <h1>เลือกปีการศึกษา</h1>
+              <select class="form-select form-select-sm" formControlName="semester"  >
+                <option  value="" hidden>กรุณาเลือก</option>
+                <option *ngFor="let i of semesterList" [ngValue]="i.semester_id">ภาคการเรียนที่ {{i.semester_number}} ปีการศึกษา {{i.semester_year}} </option>
+              </select>
+          <button type="submit" class="btn btn-primary" [disabled]="olddataForm.invalid" (click)="onSubmit()">Submit</button>
+      </form>
+  </div>
+  <div *ngIf="tableSubject.length !== 0">
+    <table >
+      <tr>
+        <th>รหัสวิชา</th>
+        <th>ชื่อวิชา</th>
+        <th>หน่วยกิจ</th>
+      </tr>
+      <tr *ngFor="let b of tableSubject">
+        <td>{{b.subject_id}}</td>
+        <td>{{b.subject_name}}</td>
+        <td>{{b.credit}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="never" *ngIf="semesterList.length === 0">
+  <h1>คุณยังไม่เคยลงทะเบียน</h1>
+</div>
